@@ -196,7 +196,8 @@ class GreedyScheduler:
                 counter += 1
 
     def print_result(self):
-
+        time = 0
+        first = True
         for key, value in self.processors.items():
             num = 0
             for l in value:
@@ -204,8 +205,14 @@ class GreedyScheduler:
                 num += 1
                 if l:#check if the list is not empty
                     for task in l:
+                        if first == True:
+                            time = task.end
+                            first = False
+                        elif task.end > time:
+                            time = task.end
                         print("    task %d:" % task.index)
                         print("        start-time: %d" % task.start)
                         print("        end-time: %d\n" % task.end)
-
+        print("The running time of this algorithm is: %d" % time)
+        
 GreedyScheduler(sys.argv[1])
