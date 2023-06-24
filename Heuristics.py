@@ -1,8 +1,6 @@
 import sys
 from Task import Task
 import random
-from Processor import Processor
-
 
 class OptimalScheduling:
     dag = []  # *
